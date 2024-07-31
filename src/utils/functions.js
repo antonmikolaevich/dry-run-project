@@ -21,6 +21,12 @@ function formatDates(string){
 
 const todayCreationDate = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
 
+async function dueDate(){
+    const dueDay = new Date().getDate();
+    const dueDate = `${new Date().getMonth() + 1}/${dueDay + 1}/${new Date().getFullYear()}`
+    return dueDate;
+}
+
 
 
 
@@ -29,5 +35,6 @@ const todayCreationDate = `${new Date().getMonth() + 1}/${new Date().getDate()}/
 
 module.exports = {
     formatDates,
-    todayCreationDate
+    todayCreationDate,
+    dueDate
 }
