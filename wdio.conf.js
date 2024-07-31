@@ -55,7 +55,7 @@ exports.config = {
 			args: [
 				//'--headless',
 				'--window-size=1920,1080',
-				'--disable-web-security',
+				//'--disable-web-security',
 				// '--incognito'
 			]
 		}
