@@ -1,15 +1,17 @@
 const { formatDates, todayCreationDate } = require('../utils/functions');
+const { pages } = require('../po/pages/index');
 
 
 describe ('Dashboard Page', () => { 
 
 
     beforeEach(async() => {
-       await browser.url('http://ecsb00302b2a.epam.com:8082');
+       await pages('dashboard').open(); 
+    //   await browser.url('http://ecsb00302b2a.epam.com:8082');
     })
 
 
-    it('Check Dashboard view when no data is added', async() => {
+    it.only('Check Dashboard view when no data is added', async() => {
         await $('#header .header_logo').isDisplayed();
         await $('#header button#logout').isDisplayed();
         await $('#header .greeting_name').isDisplayed();
