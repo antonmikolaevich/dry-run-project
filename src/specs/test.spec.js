@@ -723,7 +723,7 @@ describe ('Dashboard Page', () => {
         // await pages('dashboard').taskForm.saveBtn.isEnabled();
       })
 
-      it.only('Check task modal view', async () => {
+      it('Check task modal view', async () => {
          //header is displayed
          await $('#header').isDisplayed();
          await $('#task-list').isDisplayed();
@@ -763,9 +763,8 @@ describe ('Dashboard Page', () => {
          await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
           
          //click on task card 1 is displayed
-          await $('.task-list_row:nth-of-type(1)').click();
+        await $('.task-list_row:nth-of-type(1)').click();
         
- 
          //create card form is dispalyed
          await $('.modal-form').waitForDisplayed();
 
@@ -872,5 +871,104 @@ describe ('Dashboard Page', () => {
 
         // await pages('dashboard').taskForm.deleteBtn.isDisplayed();
         // await pages('dashboard').taskForm.deleteBtn.isEnabled(); 
+      })
+
+      it('Check that user is able to delete a task', async () => {
+        //header is displayed
+        await $('#header').isDisplayed();
+        await $('#task-list').isDisplayed();
+
+        //click add a card button
+        await $('#task-list button.add-card-button').isDisplayed();
+        await $('#task-list button.add-card-button').click();
+
+        //create card form is dispalyed
+        await $('.modal-form').waitForDisplayed();
+
+        //fill in the fields of the card form
+        await $('.modal-form .label_title input[name="title"]').waitForDisplayed();
+        await $('.modal-form .label_title input[name="title"]').setValue('testCard_1');
+
+        await $('.modal-form select[name="status"]').click();
+        await $('.modal-form option[value="TODO"]').click();
+
+        await $('.modal-form select[name="priority"]').click();
+        await $('.modal-form option[value="LOW"]').click();
+
+        const getDay = new Date().getDate();
+         const dueDates = `${new Date().getMonth() + 1}/${getDay}/${new Date().getFullYear()}`
+ 
+         await $('.modal-form input[name="dueDate"]').click();
+         await $('.modal-form input[name="dueDate"]').setValue(dueDates);
+ 
+         await $('.modal-form .label_description textarea').click()
+         await $('.modal-form .label_description textarea').setValue('test card description');
+ 
+         //click save the button
+         await $('.modal-form button.submit-button').click();
+         await $('.modal-form').waitForDisplayed({reverse: true});
+
+        await browser.refresh();
+
+        //task card 1 is displayed
+        await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
+
+        //click on task card 1 is displayed
+        await $('.task-list_row:nth-of-type(1)').click();
+        
+        //create card form is dispalyed
+        await $('.modal-form').waitForDisplayed();
+
+        await $('.modal-form button.delete-button').click();
+        await $('.modal-form').waitForDisplayed({reverse: true});
+        await $('.task-list_row:nth-of-type(1)').waitForDisplayed({reverse:true});
+
+        //======================================POM==================================
+
+        // //header is displayed
+        // await pages('dashboard').headerComponent.rootEl.isDisplayed();
+        // await pages('dashboard').tasksTableComponent.rootEl.isDisplayed();
+
+        // //click add a card button
+        // await pages('dashboard').tasksTableComponent.addCardBtn.isDisplayed();
+        // await pages('dashboard').tasksTableComponent.addCardBtn.click();
+
+        // //create card form is dispalyed
+        // await pages('dashboard').taskForm.rootEl.waitForDisplayed();
+
+        // //fill in the fields of the card form
+        // await pages('dashboard').taskForm.taskNameField.click();
+        // await pages('dashboard').taskForm.taskNameField.setValue('testCard_1');
+
+        // await pages('dashboard').taskForm.statusField.click();
+        // await pages('dashboard').taskForm.statusItem('todo').click();
+
+        // await pages('dashboard').taskForm.priorityField.click();
+        // await pages('dashboard').taskForm.priorityItem('low').click();
+
+        // const dueDates = await dueDate();
+        // await pages('dashboard').taskForm.dueDate.click()
+        // await pages('dashboard').taskForm.dueDate.setValue(dueDates);
+
+        // await pages('dashboard').taskForm.descriptionField.click()
+        // await pages('dashboard').taskForm.descriptionField.setValue('test card description');
+
+        // //click save the button
+        // await pages('dashboard').taskForm.saveBtn.click();
+        // await pages('dashboard').taskForm.rootEl.waitForDisplayed({reverse: true});
+
+        // await browser.refresh();
+
+        // //task card 1 is displayed
+        // await pages('dashboard').taskItemComponent(1).rootEl.waitForDisplayed();
+
+        // //click on created card 1
+        // await pages('dashboard').taskItemComponent(1).name.click();
+        // await pages('dashboard').taskForm.rootEl.waitForDisplayed();
+
+        // //delete the card 1
+        // await pages('dashboard').taskForm.deleteBtn.click();
+        // await pages('dashboard').taskForm.rootEl.waitForDisplayed({reverse: true});
+        // await pages('dashboard').taskItemComponent(1).rootEl.waitForDisplayed({reverse: true});
       })
 })
