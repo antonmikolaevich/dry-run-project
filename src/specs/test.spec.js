@@ -6,30 +6,51 @@ describe ('Dashboard Page', () => {
 
 
     beforeEach(async() => {
-       await pages('dashboard').open(); 
-    //   await browser.url('http://ecsb00302b2a.epam.com:8082');
+       await pages('dashboard').open();
     })
 
 
-    it.only('Check Dashboard view when no data is added', async() => {
-        await $('#header .header_logo').isDisplayed();
-        await $('#header button#logout').isDisplayed();
-        await $('#header .greeting_name').isDisplayed();
-        await $('#header .greeting_question').isDisplayed();
+    it('Check Dashboard view when no data is added', async() => {
+        await pages('dashboard').headerComponent.logoIcon.isDisplayed();
+        await pages('dashboard').headerComponent.logoutBtn.isDisplayed();
+        await pages('dashboard').headerComponent.greetingName.isDisplayed();
+        await pages('dashboard').headerComponent.greetingQuestion.isDisplayed();
 
+        const greetingQuestionText = await pages('dashboard').headerComponent.greetingQuestion.getText();
+        const greetingNameText = await pages('dashboard').headerComponent.greetingName.getText();
 
-        const greetingQuestionText = await $('#header .greeting_question').getText();
-        const greetingNameText = await $('#header .greeting_name').getText();
-
-        await $('#task-list .task-list_heading .task-column').isDisplayed();
-        await $('#task-list .task-list_heading .description-column').isDisplayed();
-        await $('#task-list .task-list_heading .creation-date-column').isDisplayed();
-        await $('#task-list .task-list_heading .due-date-column').isDisplayed();
-        await $('#task-list .task-list_heading .priority-column').isDisplayed();
-        await $('#task-list .task-list_heading .status-column').isDisplayed();
+        await pages('dashboard').tasksTableComponent.taskName.isDisplayed();
+        await pages('dashboard').tasksTableComponent.descriptionName.isDisplayed();
+        await pages('dashboard').tasksTableComponent.creationDate.isDisplayed();
+        await pages('dashboard').tasksTableComponent.dueDate.isDisplayed();
+        await pages('dashboard').tasksTableComponent.priority.isDisplayed();
+        await pages('dashboard').tasksTableComponent.status.isDisplayed();
 
         expect(greetingNameText).toEqual('Welcome Jane!');
         expect(greetingQuestionText).toEqual('What is on due today?');
+
+
+        //=========================CSS Selectors =================================
+
+
+        // await $('#header .header_logo').isDisplayed();
+        // await $('#header button#logout').isDisplayed();
+        // await $('#header .greeting_name').isDisplayed();
+        // await $('#header .greeting_question').isDisplayed();
+
+
+        // const greetingQuestionText = await $('#header .greeting_question').getText();
+        // const greetingNameText = await $('#header .greeting_name').getText();
+
+        // await $('#task-list .task-list_heading .task-column').isDisplayed();
+        // await $('#task-list .task-list_heading .description-column').isDisplayed();
+        // await $('#task-list .task-list_heading .creation-date-column').isDisplayed();
+        // await $('#task-list .task-list_heading .due-date-column').isDisplayed();
+        // await $('#task-list .task-list_heading .priority-column').isDisplayed();
+        // await $('#task-list .task-list_heading .status-column').isDisplayed();
+
+        // expect(greetingNameText).toEqual('Welcome Jane!');
+        // expect(greetingQuestionText).toEqual('What is on due today?');
     });
 
 
