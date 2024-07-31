@@ -1,4 +1,4 @@
-const BasePage = require('../pages/base.page');
+const BasePage = require('../pages/basePage.page');
 
 
 class DashboardPage extends BasePage {
