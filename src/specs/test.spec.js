@@ -1,5 +1,5 @@
 const { pages } = require('../po/pages/index');
-const { formatDates, todayCreationDate, dueDate } = require('../utils/functions');
+const { formatDates, todayCreationDate, dueDate, deleteCards } = require('../utils/functions');
 
 
 describe ('Dashboard Page', () => { 
@@ -7,6 +7,7 @@ describe ('Dashboard Page', () => {
 
     beforeEach(async() => {
        await pages('dashboard').open();
+       await deleteCards();
     })
 
 
