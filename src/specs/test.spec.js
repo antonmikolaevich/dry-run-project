@@ -158,7 +158,7 @@ describe ('Dashboard Page', () => {
         //compare the actual results of the card values with expected results
         expect(taskCardTitle).toEqual('testCard_1');
         expect(taskDescriptionTitle).toEqual('test card description');
-        expect(formatDates(creationDateTitle)).toEqual(`${todayCreationDate}`);
+        expect(formatDates(creationDateTitle)).toEqual(todayCreationDate());
         expect(formatDates(dueDateValueTitle)).toEqual(dueDates);
         expect(priorityValueTitle).toEqual('Low');
         expect(cardStatusTitle).toEqual('To Do');
@@ -479,7 +479,7 @@ describe ('Dashboard Page', () => {
 
         expect(taskCardTitle).toEqual('testCard_1');
         expect(taskDescriptionTitle).toEqual('test card description');
-        expect(formatDates(creationDateTitle)).toEqual(`${todayCreationDate}`);
+        expect(formatDates(creationDateTitle)).toEqual(todayCreationDate());
         expect(formatDates(dueDateValueTitle)).toEqual(dueDates);
         expect(priorityValueTitle).toEqual('Low');
         expect(cardStatusTitle).toEqual('To Do');
@@ -666,14 +666,14 @@ describe ('Dashboard Page', () => {
 
         expect(taskCardTitleFirst).toEqual('testCard_1');
         expect(taskDescriptionTitleFirst).toEqual('test card description');
-        expect(formatDates(creationDateTitleFirst)).toEqual(`${todayCreationDate}`);
+        expect(formatDates(creationDateTitleFirst)).toEqual(todayCreationDate());
         expect(formatDates(dueDateValueTitleFirst)).toEqual(dueDates);
         expect(priorityValueTitleFirst).toEqual('Low');
         expect(cardStatusTitleFirst).toEqual('To Do');
 
         expect(taskCardTitleSecond).toEqual('testCard_2');
         expect(taskDescriptionTitleSecond).toEqual('test card description number the second');
-        expect(formatDates(creationDateTitleSecond)).toEqual(`${todayCreationDate}`);
+        expect(formatDates(creationDateTitleSecond)).toEqual(todayCreationDate());
         expect(formatDates(dueDateValueTitleSecond)).toEqual(dueDatesSecond);
         expect(priorityValueTitleSecond).toEqual('Medium');
         expect(cardStatusTitleSecond).toEqual('In Progress');
