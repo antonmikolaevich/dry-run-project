@@ -679,89 +679,93 @@ describe ('Dashboard Page', () => {
       })
 
       it('Check "New Task" modal view', async () => {
-        //header is displayed
-        await $('#header').isDisplayed();
-        await $('#task-list').isDisplayed();
+        // ============================= CSS Selectors =================================================
 
-        //click add a card button
-        await $('#task-list button.add-card-button').isDisplayed();
-        await $('#task-list button.add-card-button').click();
+        // //header is displayed
+        // await $('#header').isDisplayed();
+        // await $('#task-list').isDisplayed();
 
-        //create card form is dispalyed
-        await $('.modal-form').waitForDisplayed();
+        // //click add a card button
+        // await $('#task-list button.add-card-button').isDisplayed();
+        // await $('#task-list button.add-card-button').click();
 
-        await $('.modal-form .label_title input[name="title"]').isEnabled();
-        await $('.modal-form select[name="status"]').isEnabled();
-        await $('.modal-form select[name="status"]').click();
+        // //create card form is dispalyed
+        // await $('.modal-form').waitForDisplayed();
 
-        await $('.modal-form option[value="TODO"]').isEnabled();
-        await $('.modal-form option[value="IN_PROGRESS"]').isEnabled();
-        await $('.modal-form option[value="REVIEW"]').isEnabled();
-        await $('.modal-form option[value="DONE"]').isEnabled();
+        // await $('.modal-form .label_title input[name="title"]').isEnabled();
+        // await $('.modal-form select[name="status"]').isEnabled();
+        // await $('.modal-form select[name="status"]').click();
 
-        await $('.modal-form select[name="priority"]').isEnabled();
-        await $('.modal-form select[name="priority"]').click();
+        // await $('.modal-form option[value="TODO"]').isEnabled();
+        // await $('.modal-form option[value="IN_PROGRESS"]').isEnabled();
+        // await $('.modal-form option[value="REVIEW"]').isEnabled();
+        // await $('.modal-form option[value="DONE"]').isEnabled();
 
-        await $('.modal-form option[value="LOW"]').isEnabled();
-        await $('.modal-form option[value="MEDIUM"]').isEnabled();
-        await $('.modal-form option[value="TOP"]').isEnabled();
+        // await $('.modal-form select[name="priority"]').isEnabled();
+        // await $('.modal-form select[name="priority"]').click();
 
-        const isCreationDateEnabled = await $('.modal-form input[name="createdDate"]').isEnabled();
-        expect(isCreationDateEnabled).toEqual(false);
+        // await $('.modal-form option[value="LOW"]').isEnabled();
+        // await $('.modal-form option[value="MEDIUM"]').isEnabled();
+        // await $('.modal-form option[value="TOP"]').isEnabled();
 
-        await $('.modal-form input[name="dueDate"]').isEnabled();
+        // const isCreationDateEnabled = await $('.modal-form input[name="createdDate"]').isEnabled();
+        // expect(isCreationDateEnabled).toEqual(false);
 
-        await $('.modal-form .label_description textarea').click();
-        await $('.modal-form .label_description textarea').isDisplayed();
-        await $('.modal-form .label_description textarea').isEnabled();
+        // await $('.modal-form input[name="dueDate"]').isEnabled();
 
-        await $('.modal-form button.submit-button').isDisplayed();
-        await $('.modal-form button.submit-button').isEnabled();
+        // await $('.modal-form .label_description textarea').click();
+        // await $('.modal-form .label_description textarea').isDisplayed();
+        // await $('.modal-form .label_description textarea').isEnabled();
+
+        // await $('.modal-form button.submit-button').isDisplayed();
+        // await $('.modal-form button.submit-button').isEnabled();
+
+        // ====================================== CSS Selectors ==================================
 
 
 
         //=====================================POM==================================
 
 
-        // //header is displayed
-        // await pages('dashboard').headerComponent.rootEl.isDisplayed();
-        // await pages('dashboard').tasksTableComponent.rootEl.isDisplayed();
+        //header is displayed
+        await pages('dashboard').headerComponent.rootEl.isDisplayed();
+        await pages('dashboard').tasksTableComponent.rootEl.isDisplayed();
 
-        // //click add a card button
-        // await pages('dashboard').tasksTableComponent.addCardBtn.isDisplayed();
-        // await pages('dashboard').tasksTableComponent.addCardBtn.click();
+        //click add a card button
+        await pages('dashboard').tasksTableComponent.addCardBtn.isDisplayed();
+        await pages('dashboard').tasksTableComponent.addCardBtn.click();
 
-        // //create card form is dispalyed
-        // await pages('dashboard').taskForm.rootEl.waitForDisplayed();
+        //create card form is dispalyed
+        await pages('dashboard').taskForm.rootEl.waitForDisplayed();
 
-        // await pages('dashboard').taskForm.taskNameField.isEnabled();
+        await pages('dashboard').taskForm.taskNameField.isEnabled();
 
-        // await pages('dashboard').taskForm.statusField.isEnabled();
-        // await pages('dashboard').taskForm.statusField.click();
+        await pages('dashboard').taskForm.statusField.isEnabled();
+        await pages('dashboard').taskForm.statusField.click();
 
-        // await pages('dashboard').taskForm.statusItem('todo').isEnabled();
-        // await pages('dashboard').taskForm.statusItem('review').isEnabled();
-        // await pages('dashboard').taskForm.statusItem('inprogress').isEnabled();
-        // await pages('dashboard').taskForm.statusItem('done').isEnabled();
+        await pages('dashboard').taskForm.statusItem('todo').isEnabled();
+        await pages('dashboard').taskForm.statusItem('review').isEnabled();
+        await pages('dashboard').taskForm.statusItem('inprogress').isEnabled();
+        await pages('dashboard').taskForm.statusItem('done').isEnabled();
 
-        // await pages('dashboard').taskForm.priorityField.isEnabled();
-        // await pages('dashboard').taskForm.priorityField.click();
+        await pages('dashboard').taskForm.priorityField.isEnabled();
+        await pages('dashboard').taskForm.priorityField.click();
 
-        // await pages('dashboard').taskForm.priorityItem('low').isEnabled();
-        // await pages('dashboard').taskForm.priorityItem('medium').isEnabled();
-        // await pages('dashboard').taskForm.priorityItem('high').isEnabled();
+        await pages('dashboard').taskForm.priorityItem('low').isEnabled();
+        await pages('dashboard').taskForm.priorityItem('medium').isEnabled();
+        await pages('dashboard').taskForm.priorityItem('high').isEnabled();
 
-        // const isCreationDateEnabled = await pages('dashboard').taskForm.creationDate.isEnabled();
-        // expect(isCreationDateEnabled).toEqual(false);
+        const isCreationDateEnabled = await pages('dashboard').taskForm.creationDate.isEnabled();
+        expect(isCreationDateEnabled).toEqual(false);
 
-        // await pages('dashboard').taskForm.dueDate.isEnabled();
+        await pages('dashboard').taskForm.dueDate.isEnabled();
 
-        // await pages('dashboard').taskForm.descriptionField.click();
-        // await pages('dashboard').taskForm.descriptionField.isDisplayed();
-        // await pages('dashboard').taskForm.descriptionField.isEnabled();
+        await pages('dashboard').taskForm.descriptionField.click();
+        await pages('dashboard').taskForm.descriptionField.isDisplayed();
+        await pages('dashboard').taskForm.descriptionField.isEnabled();
 
-        // await pages('dashboard').taskForm.saveBtn.isDisplayed();
-        // await pages('dashboard').taskForm.saveBtn.isEnabled();
+        await pages('dashboard').taskForm.saveBtn.isDisplayed();
+        await pages('dashboard').taskForm.saveBtn.isEnabled();
       })
 
       it('Check task modal view', async () => {
