@@ -1,5 +1,9 @@
 
 
+
+
+
+
 function formatDates(string){
     const arr = string.split(' ');
     let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]; 
@@ -16,15 +20,40 @@ function formatDates(string){
             year = arr[i];
         }
     }
-    return (`${monthInNumber}/${dayUpd}/${year}`);
+
+    if (monthInNumber < 10 || dayUpd < 10){
+        console.log(`formatDate is {0${monthInNumber}/0${dayUpd}/${year}}`);
+        return (`0${monthInNumber}/0${dayUpd}/${year}`);
+    }
+
+    return (`0${monthInNumber}/0${dayUpd}/${year}`);
 }
 
-const todayCreationDate = `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
+function todayCreationDate (){
+    const dueDay = new Date().getDate();
+    const getMonth = new Date().getMonth();
+    if (dueDay < 10 || getMonth < 10){
+        return `0${new Date().getMonth() + 1}/0${new Date().getDate()}/${new Date().getFullYear()}`
+    } else {
+        return `${new Date().getMonth() + 1}/${new Date().getDate()}/${new Date().getFullYear()}`
+    }
+
+}
+
 
 async function dueDate(){
     const dueDay = new Date().getDate();
-    const dueDate = `${new Date().getMonth() + 1}/${dueDay + 1}/${new Date().getFullYear()}`
-    return dueDate;
+    const getMonth = new Date().getMonth();
+
+    console.log(`our day is ${dueDay}`);
+    console.log(`our month is ${getMonth}`);
+
+    if (dueDay < 10 || getMonth < 10){
+        console.log(`dueDate is 0${new Date().getMonth() + 1}/0${dueDay}/${new Date().getFullYear()}`)
+    return `0${new Date().getMonth() + 1}/0${dueDay}/${new Date().getFullYear()}`
+    } else 
+    console.log(`dueDate is ${new Date().getMonth()}/${dueDay + 1}/${new Date().getFullYear()}`)
+    return `${new Date().getMonth() + 1}/${dueDay}/${new Date().getFullYear()}`;
 }
 
 
