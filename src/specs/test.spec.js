@@ -1,6 +1,6 @@
 const { pages } = require('../po/pages/index');
 const { formatDates, todayCreationDate, dueDate, deleteCards } = require('../utils/functions');
-
+// go to allureReportBranch branch
 
 describe ('Dashboard Page', () => { 
 
