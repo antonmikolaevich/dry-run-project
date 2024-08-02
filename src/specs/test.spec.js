@@ -1,5 +1,5 @@
 const { formatDates, todayCreationDate } = require('../utils/functions');
-
+// go to beginPOM
 
 describe ('Dashboard Page', () => { 
 
@@ -135,104 +135,109 @@ describe ('Dashboard Page', () => {
     });
 
     it('Check that user is able to edit already created task', async () => {
-        //header is displayed
-        await $('#header').isDisplayed();
-        await $('#task-list').isDisplayed();
+        // ======================================= CSS Selector ============================================
 
-        //click add a card button
-        await $('#task-list button.add-card-button').isDisplayed();
-        await $('#task-list button.add-card-button').click();
+        // //header is displayed
+        // await $('#header').isDisplayed();
+        // await $('#task-list').isDisplayed();
 
-        //create card form is dispalyed
-        await $('.modal-form').waitForDisplayed();
+        // //click add a card button
+        // await $('#task-list button.add-card-button').isDisplayed();
+        // await $('#task-list button.add-card-button').click();
 
-        //fill in the fields of the card form
-        await $('.modal-form .label_title input[name="title"]').waitForDisplayed();
-        await $('.modal-form .label_title input[name="title"]').setValue('testCard_1');
+        // //create card form is dispalyed
+        // await $('.modal-form').waitForDisplayed();
 
-        await $('.modal-form select[name="status"]').click();
-        await $('.modal-form option[value="TODO"]').click();
+        // //fill in the fields of the card form
+        // await $('.modal-form .label_title input[name="title"]').waitForDisplayed();
+        // await $('.modal-form .label_title input[name="title"]').setValue('testCard_1');
 
-        await $('.modal-form select[name="priority"]').click();
-        await $('.modal-form option[value="LOW"]').click();
+        // await $('.modal-form select[name="status"]').click();
+        // await $('.modal-form option[value="TODO"]').click();
 
-
-        const getDay = new Date().getDate();
-        const dueDates = `${new Date().getMonth() + 1}/${getDay}/${new Date().getFullYear()}`
-
-        await $('.modal-form input[name="dueDate"]').click();
-        await $('.modal-form input[name="dueDate"]').setValue(dueDates);
-
-        await $('.modal-form .label_description textarea').click()
-        await $('.modal-form .label_description textarea').setValue('test card description');
-
-        //click save the button
-        await $('.modal-form button.submit-button').click();
-        await $('.modal-form').waitForDisplayed({reverse: true});
-
-        //task card 1 is displayed
-        await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
-
-        //get text of all elements in the card row 1
-        const taskCardTitleOld = await $('.task-list_row:nth-of-type(1) td.task-column').getText();
-        const taskDescriptionTitleOld =  await $('.task-list_row:nth-of-type(1) td.description-column').getText();
-        const creationDateTitleOld =  await $('.task-list_row:nth-of-type(1) td.creation-date-column').getText();
-        const dueDateValueTitleOld =  await $('.task-list_row:nth-of-type(1) td.due-date-column').getText();
-        const priorityValueTitleOld =  await $('.task-list_row:nth-of-type(1) td.priority-column > div.priority').getText();
-        const cardStatusTitleOld =  await $('.task-list_row:nth-of-type(1) td.status-column > div.status').getText(); 
-
-        await browser.refresh();
-
-        await $('#header').isDisplayed();
-        await $('#task-list').isDisplayed();
-
-        //click on the created first card
-        await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
-        await $('.task-list_row:nth-of-type(1)').click();
-
-        //create card form is dispalyed
-        await $('.modal-form').waitForDisplayed();
-
-        //fill in the fields of the card form
-        await $('.modal-form .label_title input[name="title"]').waitForDisplayed();
-        await $('.modal-form .label_title input[name="title"]').clearValue();
-        await $('.modal-form .label_title input[name="title"]').setValue('testCard_updated');
-
-        await $('.modal-form select[name="status"]').click();
-        await $('.modal-form option[value="IN_PROGRESS"]').click();
-
-        await $('.modal-form select[name="priority"]').click();
-        await $('.modal-form option[value="MEDIUM"]').click();
+        // await $('.modal-form select[name="priority"]').click();
+        // await $('.modal-form option[value="LOW"]').click();
 
 
-        const getDaySecond = new Date().getDate();
-        const dueDatesSecond = `${new Date().getMonth() + 1}/${getDaySecond}/${new Date().getFullYear()}`
+        // const getDay = new Date().getDate();
+        // const dueDates = `${new Date().getMonth() + 1}/${getDay}/${new Date().getFullYear()}`
 
-        await $('.modal-form input[name="dueDate"]').click();
-        await $('.modal-form input[name="dueDate"]').setValue(dueDatesSecond);
+        // await $('.modal-form input[name="dueDate"]').click();
+        // await $('.modal-form input[name="dueDate"]').setValue(dueDates);
 
-        await $('.modal-form .label_description textarea').click()
-        await $('.modal-form .label_description textarea').clearValue();
-        await $('.modal-form .label_description textarea').setValue('test card description updated');
+        // await $('.modal-form .label_description textarea').click()
+        // await $('.modal-form .label_description textarea').setValue('test card description');
 
-        await browser.pause(5000)
+        // //click save the button
+        // await $('.modal-form button.submit-button').click();
+        // await $('.modal-form').waitForDisplayed({reverse: true});
 
-        //click save the button
-        await $('.modal-form button.submit-button').click();
-        await $('.modal-form').waitForDisplayed({reverse: true});
+        // //task card 1 is displayed
+        // await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
+
+        // //get text of all elements in the card row 1
+        // const taskCardTitleOld = await $('.task-list_row:nth-of-type(1) td.task-column').getText();
+        // const taskDescriptionTitleOld =  await $('.task-list_row:nth-of-type(1) td.description-column').getText();
+        // const creationDateTitleOld =  await $('.task-list_row:nth-of-type(1) td.creation-date-column').getText();
+        // const dueDateValueTitleOld =  await $('.task-list_row:nth-of-type(1) td.due-date-column').getText();
+        // const priorityValueTitleOld =  await $('.task-list_row:nth-of-type(1) td.priority-column > div.priority').getText();
+        // const cardStatusTitleOld =  await $('.task-list_row:nth-of-type(1) td.status-column > div.status').getText(); 
+
+        // await browser.refresh();
+
+        // await $('#header').isDisplayed();
+        // await $('#task-list').isDisplayed();
+
+        // //click on the created first card
+        // await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
+        // await $('.task-list_row:nth-of-type(1)').click();
+
+        // //create card form is dispalyed
+        // await $('.modal-form').waitForDisplayed();
+
+        // //fill in the fields of the card form
+        // await $('.modal-form .label_title input[name="title"]').waitForDisplayed();
+        // await $('.modal-form .label_title input[name="title"]').clearValue();
+        // await $('.modal-form .label_title input[name="title"]').setValue('testCard_updated');
+
+        // await $('.modal-form select[name="status"]').click();
+        // await $('.modal-form option[value="IN_PROGRESS"]').click();
+
+        // await $('.modal-form select[name="priority"]').click();
+        // await $('.modal-form option[value="MEDIUM"]').click();
 
 
-        //task card 1 is displayed
-        await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
+        // const getDaySecond = new Date().getDate();
+        // const dueDatesSecond = `${new Date().getMonth() + 1}/${getDaySecond}/${new Date().getFullYear()}`
 
-        //get text of all elements in the updated card row 1
-        const taskCardTitleNew = await $('.task-list_row:nth-of-type(1) td.task-column').getText();
-        console.log(`our title is ${taskCardTitleNew}`);
-        const taskDescriptionTitleNew =  await $('.task-list_row:nth-of-type(1) td.description-column').getText();
-        const creationDateTitleNew =  await $('.task-list_row:nth-of-type(1) td.creation-date-column').getText();
-        const dueDateValueTitleNew =  await $('.task-list_row:nth-of-type(1) td.due-date-column').getText();
-        const priorityValueTitleNew =  await $('.task-list_row:nth-of-type(1) td.priority-column > div.priority').getText();
-        const cardStatusTitleNew =  await $('.task-list_row:nth-of-type(1) td.status-column > div.status').getText();
+        // await $('.modal-form input[name="dueDate"]').click();
+        // await $('.modal-form input[name="dueDate"]').setValue(dueDatesSecond);
+
+        // await $('.modal-form .label_description textarea').click()
+        // await $('.modal-form .label_description textarea').clearValue();
+        // await $('.modal-form .label_description textarea').setValue('test card description updated');
+
+        // await browser.pause(5000)
+
+        // //click save the button
+        // await $('.modal-form button.submit-button').click();
+        // await $('.modal-form').waitForDisplayed({reverse: true});
+
+
+        // //task card 1 is displayed
+        // await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
+
+        // //get text of all elements in the updated card row 1
+        // const taskCardTitleNew = await $('.task-list_row:nth-of-type(1) td.task-column').getText();
+        // console.log(`our title is ${taskCardTitleNew}`);
+        // const taskDescriptionTitleNew =  await $('.task-list_row:nth-of-type(1) td.description-column').getText();
+        // const creationDateTitleNew =  await $('.task-list_row:nth-of-type(1) td.creation-date-column').getText();
+        // const dueDateValueTitleNew =  await $('.task-list_row:nth-of-type(1) td.due-date-column').getText();
+        // const priorityValueTitleNew =  await $('.task-list_row:nth-of-type(1) td.priority-column > div.priority').getText();
+        // const cardStatusTitleNew =  await $('.task-list_row:nth-of-type(1) td.status-column > div.status').getText();
+
+
+        // ================================================= CSS Selectors ===================================
         
         
         //==================POM =============================
