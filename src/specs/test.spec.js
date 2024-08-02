@@ -1,6 +1,6 @@
 const { formatDates, todayCreationDate } = require('../utils/functions');
 const { pages } = require('../po/pages/index');
-
+// go to convertToPomSecondScenario branch
 
 describe ('Dashboard Page', () => { 
 
