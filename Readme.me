@@ -1,12 +1,41 @@
 How to follow the process of TAF creation:
 
 1. firstScenario branch
+
+npm init -> to install the package.json file
+npm init wdio@latest . -> to create the wdio.conf.js
+create the src folder
+create the .gitignore folder - hide the node_modules folder at least
+create the test.spec.js file and add the first scenario using CSS selectors OR XPath
+
 2. secondScenario branch
+
+add the second scenario using CSS selectors OR XPath
+
 3. otherScenariosCssSelector branch
+
+add other scenarios in test.spec.js using CSS Selectors or XPATH
+
 4. beginPOM branch
+
+create the PO folder -> sub-folder component and pages
+
 5. implementFirstStepIntoPOM branch
+
+convert the await browser.url -> into page objects like pages('download').open()
+create the index.js files for components and pages
+
 6. convertFirstScenario branch
+
+convert the first scenario adding the headerComponent and tasksTableComponent components into po/component/common folder
+check that these component are in basePage.page.js file
+create index.js file for component
+
 7. convertToPomSecondScenario branch
+
+convert the second scenario adding 
+check that these component are in basePage.page.js file
+
 8. convertedThirdScenarioIntoPom branch
 9. foirthScenario branch
 10. fifthScenario branch
@@ -14,6 +43,14 @@ How to follow the process of TAF creation:
 12. seventhScenario branch
 13. eightthScenario branch
 14. tagsBranch branch
+
+please review deleteCards() method, here this method is added
+
 15. allureReportBranch branch
+
+https://webdriver.io/docs/allure-reporter/
+please pay attention which libraries should be downloaded for allure report
+another focus should be moved into wdio.conf.js
+
 
 and the actual one - master branch
