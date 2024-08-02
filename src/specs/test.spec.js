@@ -1,5 +1,5 @@
 const { formatDates, todayCreationDate } = require('../utils/functions');
-
+// go to implementFirstStepIntoPOM
 
 describe ('Dashboard Page', () => { 
 
@@ -340,62 +340,66 @@ describe ('Dashboard Page', () => {
       })
 
       it('Check Dashboard view with task', async() =>{
+        // ================================== CSS Selectors ===========================================
+
         //header is displayed
-        await $('#header').isDisplayed();
-        await $('#task-list').isDisplayed();
+        // await $('#header').isDisplayed();
+        // await $('#task-list').isDisplayed();
 
-        //click add a card button
-        await $('#task-list button.add-card-button').isDisplayed();
-        await $('#task-list button.add-card-button').click();
+        // //click add a card button
+        // await $('#task-list button.add-card-button').isDisplayed();
+        // await $('#task-list button.add-card-button').click();
 
-        //create card form is dispalyed
-        await $('.modal-form').waitForDisplayed();
+        // //create card form is dispalyed
+        // await $('.modal-form').waitForDisplayed();
 
-        //fill in the fields of the card form
-        await $('.modal-form .label_title input[name="title"]').waitForDisplayed();
-        await $('.modal-form .label_title input[name="title"]').setValue('testCard_1');
+        // //fill in the fields of the card form
+        // await $('.modal-form .label_title input[name="title"]').waitForDisplayed();
+        // await $('.modal-form .label_title input[name="title"]').setValue('testCard_1');
 
-        await $('.modal-form select[name="status"]').click();
-        await $('.modal-form option[value="TODO"]').click();
+        // await $('.modal-form select[name="status"]').click();
+        // await $('.modal-form option[value="TODO"]').click();
 
-        await $('.modal-form select[name="priority"]').click();
-        await $('.modal-form option[value="LOW"]').click();
+        // await $('.modal-form select[name="priority"]').click();
+        // await $('.modal-form option[value="LOW"]').click();
 
 
-        const getDay = new Date().getDate();
-        const dueDates = `${new Date().getMonth() + 1}/${getDay}/${new Date().getFullYear()}`
+        // const getDay = new Date().getDate();
+        // const dueDates = `${new Date().getMonth() + 1}/${getDay}/${new Date().getFullYear()}`
 
-        await $('.modal-form input[name="dueDate"]').click();
-        await $('.modal-form input[name="dueDate"]').setValue(dueDates);
+        // await $('.modal-form input[name="dueDate"]').click();
+        // await $('.modal-form input[name="dueDate"]').setValue(dueDates);
 
-        await $('.modal-form .label_description textarea').click()
-        await $('.modal-form .label_description textarea').setValue('test card description');
+        // await $('.modal-form .label_description textarea').click()
+        // await $('.modal-form .label_description textarea').setValue('test card description');
 
-        //click save the button
-        await $('.modal-form button.submit-button').click();
-        await $('.modal-form').waitForDisplayed({reverse: true});
+        // //click save the button
+        // await $('.modal-form button.submit-button').click();
+        // await $('.modal-form').waitForDisplayed({reverse: true});
 
-        //task card 1 is displayed
-        await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
+        // //task card 1 is displayed
+        // await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
 
-        //get text of all elements in the card row 1
-        const taskCardTitle = await $('.task-list_row:nth-of-type(1) td.task-column').getText();
-        const taskDescriptionTitle =  await $('.task-list_row:nth-of-type(1) td.description-column').getText();
-        const creationDateTitle =  await $('.task-list_row:nth-of-type(1) td.creation-date-column').getText();
-        const dueDateValueTitle =  await $('.task-list_row:nth-of-type(1) td.due-date-column').getText();
-        const priorityValueTitle =  await $('.task-list_row:nth-of-type(1) td.priority-column > div.priority').getText();
-        const cardStatusTitle =  await $('.task-list_row:nth-of-type(1) td.status-column > div.status').getText(); 
+        // //get text of all elements in the card row 1
+        // const taskCardTitle = await $('.task-list_row:nth-of-type(1) td.task-column').getText();
+        // const taskDescriptionTitle =  await $('.task-list_row:nth-of-type(1) td.description-column').getText();
+        // const creationDateTitle =  await $('.task-list_row:nth-of-type(1) td.creation-date-column').getText();
+        // const dueDateValueTitle =  await $('.task-list_row:nth-of-type(1) td.due-date-column').getText();
+        // const priorityValueTitle =  await $('.task-list_row:nth-of-type(1) td.priority-column > div.priority').getText();
+        // const cardStatusTitle =  await $('.task-list_row:nth-of-type(1) td.status-column > div.status').getText(); 
 
-        expect(taskCardTitle).toEqual('testCard_1');
-        expect(taskDescriptionTitle).toEqual('test card description');
-        expect(formatDates(creationDateTitle)).toEqual(`${todayCreationDate}`);
-        expect(formatDates(dueDateValueTitle)).toEqual(dueDates);
-        expect(priorityValueTitle).toEqual('Low');
-        expect(cardStatusTitle).toEqual('To Do');
+        // expect(taskCardTitle).toEqual('testCard_1');
+        // expect(taskDescriptionTitle).toEqual('test card description');
+        // expect(formatDates(creationDateTitle)).toEqual(`${todayCreationDate}`);
+        // expect(formatDates(dueDateValueTitle)).toEqual(dueDates);
+        // expect(priorityValueTitle).toEqual('Low');
+        // expect(cardStatusTitle).toEqual('To Do');
 
-        //task card 1 is displayed
-        await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
-        await $('#task-list button.add-card-button').isDisplayed();
+        // //task card 1 is displayed
+        // await $('.task-list_row:nth-of-type(1)').waitForDisplayed();
+        // await $('#task-list button.add-card-button').isDisplayed();
+
+        // ============================================ CSS Selectors ==================================
 
         //====================POM=============================
 
